@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Storage Example</title>
+	<script type="text/javascript" src="cookies.js"></script>
+	<script type="text/javascript">
+		////////////////////////////Careful - does not work on file:// (MUST upload to gibson)
+		//////For the project, do something that fits into what you are building - if you do this, you will get a "0" for storage
+		//localStorage & cookies
+
+		const changebg = (what) =>{
+			//does localstorage exist
+			if(window.localStorage){
+				//do local storage stuff
+				if(what){
+					//record the color
+					localStorage.setItem('color',what)
+				}
+
+				//change bgcolor for the body
+			if(localStorage.getItem('color')){
+				document.getElementsByTagName('body')[0].style.backgroundColor = localStorage.getItem('color')
+			}
+			}else{
+				//do cookie stuff
+				
+			}
+		}
+
+		const clearbg = ()=>{
+			localStorage.removeItem('color')
+			document.getElementsByTagName('body')[0].style.backgroundColor = ''
+		}
+
+		//cookies
+		//have they been here
+		if(GetCookie('user_id') == null){
+			//first visit
+			var name = prompt("Hi - please give name...",'Enter Name');
+			SetCookie('user_id',name);
+			document.write("<h1>Welcome, ",+GetCookie('user_id')+" - first time you are here");
+			SetCookie('hit_count',1);
+		}else{
+			document.write("<h3>Welcome back, "+GetCookie('user_id')+". You have been here "+GetCookie('hit_count')+" times");
+			SetCookie('hit_count',(parseInt(GetCookie('hit_count'))+1))
+		}
+
+	</script>
+</head>
+<body onload="changebg()">
+<div id="output"> </div>
+<div style="position:absolute;right:10px;bottom:10px;background:#c9c;">
+	Change your style. <span style="cursor:pointer;" onclick="changebg('red');">Red</span> | 
+	<span style="cursor:pointer;" onclick="changebg('green');">Green</span> | 
+	<span style="cursor:pointer;" onclick="clearbg()">Clear</span>
+</div>
+</body>
+</html>
