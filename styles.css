@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#board{
+    margin: auto;
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(3, 1fr);
+    width: 60%;
+}
+.box{
+    padding: 10px;
+    aspect-ratio: 1;
+    border: 2px black solid;
+}
+.box:Hover{
+    background-color: aquamarine !important;
+    opacity: 50%;
+}
+.box.blue {
+    background-color: blue;
+    color: white;
+}
+
+.box.green {
+    background-color: green;
+    color: white;
+}
