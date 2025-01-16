@@ -1,18 +1,16 @@
-const changeWord = (what) =>{
-    if(window.localStorage){
-        if(what){
-            localStorage.setItem('color',what)
+function changeWord(word) {
+    if (window.localStorage) {
+        if (word) {
+            localStorage.setItem('newWord', word);
         }
 
-    if(localStorage.getItem('word')){
-        document.getElementsByTagName('body')[0].style.backgroundColor = localStorage.getItem('color')
-    }
-    }else{
-        
+        if (localStorage.getItem('newWord')) {
+            document.getElementById('displayText').textContent = localStorage.getItem('newWord');
+        }
     }
 }
 
-const clearWord22544 = ()=>{
-    localStorage.removeItem('color')
-    document.getElementsByTagName('body')[0].style.backgroundColor = ''
+function clearWord() {
+    localStorage.removeItem('newWord');
+    document.getElementById('displayText').textContent = "Your text will appear here.";
 }

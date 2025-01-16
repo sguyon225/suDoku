@@ -7,7 +7,11 @@
     <title>Su D. Oku</title>
 </head>
 <body>
-    <p class="change">Word</p>
-    <input type="text">
-</body>
+    <h1>LocalStorage Text Updater</h1>
+    <label for="textInput">Enter text:</label>
+    <input type="text" id="textInput" placeholder="Type something...">
+    <button type="submit" onclick="changeWord(document.getElementById('textInput').value)">Submit</button>
+    <button type="submit" onclick="clearWord()">Reset</button>
+    <p id="displayText">Your text will appear here.</p>
+  </body>
 </html>
