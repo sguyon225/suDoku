@@ -2,22 +2,36 @@
     margin: 0;
     padding: 0;
 }
-#board{
-    margin: auto;
+/* Parent container styles */
+#board {
     display: grid;
-    gap: 1px;
-    grid-template-columns: repeat(3, 1fr);
-    width: 60%;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 0; /* Remove gaps between boxes */
+    width: 300px; /* Fixed width for the board */
+    height: 300px; /* Fixed height for the board */
+    margin: 0 auto; /* Center the board horizontally */
+    border: 2px solid black; /* Optional: For visual clarity */
+    grid-area: board;
 }
-.box{
-    padding: 10px;
-    aspect-ratio: 1;
-    border: 2px black solid;
+
+/* Box styles */
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black; /* Optional: Box borders */
+    background-color: lightgray; /* Default background color */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
 }
-.box:Hover{
-    background-color: aquamarine !important;
-    opacity: 50%;
+
+/* Hover effect */
+.box:hover {
+    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent overlay */
+    transform: scale(1.05); /* Slight zoom effect */
 }
+
+/* Color states */
 .box.blue {
     background-color: blue;
     color: white;
@@ -26,4 +40,27 @@
 .box.green {
     background-color: green;
     color: white;
+}
+.affiliation{
+    width:20%;
+    aspect-ratio: 1;
+    background-color: yellow;
+}
+#a1{
+    grid-area: a1;  
+}
+#a2{
+    grid-area: a2;  
+}
+#a3{
+    grid-area: a3;  
+}
+#a4{
+    grid-area: a4;  
+}
+#a5{
+    grid-area: a5;  
+}
+#a6{
+    grid-area: a6;  
 }
